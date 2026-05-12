@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Formulário de Candidatura — AUCP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="inscricao.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">AUCP</div>
+      <div class="brand-text">
+        <strong>Associação Universal Conexão Profunda</strong>
+        <span>Vagas de Estudo em Portugal · Cursos Profissionais (3 anos)</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Vagas de Estudo em Portugal · PT</p>
+      <h1>Formulário de <span class="gold">Candidatura</span></h1>
+      <p class="lead">Preenche o formulário abaixo em 6 passos. Todos os campos com * são obrigatórios.</p>
+    </section>
+
+    <!-- Stepper -->
+    <div class="stepper">
+      <div class="steps" id="steps"></div>
+      <div class="progress"><div class="progress-bar" id="progress"></div></div>
+    </div>
+
+    <form id="form" class="card" novalidate>
+      <!-- STEP 1 -->
+      <section class="step" data-step="1">
+        <h2 class="section-title">1. Informações do Candidato</h2>
+
+        <label class="field"><span>Nome completo *</span>
+          <input type="text" name="nomeCompleto" maxlength="150" required />
+        </label>
+
+        <div class="grid-3">
+          <label class="field"><span>Data de nascimento *</span>
+            <div class="row">
+              <input type="text" name="dataNascDia" placeholder="DD" maxlength="2" required />
+              <input type="text" name="dataNascMes" placeholder="MM" maxlength="2" required />
+              <input type="text" name="dataNascAno" placeholder="AAAA" maxlength="4" required />
+            </div>
+          </label>
+          <label class="field"><span>Idade</span>
+            <input type="text" name="idade" maxlength="3" />
+          </label>
+          <label class="field"><span>Sexo *</span>
+            <select name="sexo" required>
+              <option value="">—</option>
+              <option>Masculino</option>
+              <option>Feminino</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label class="field"><span>Nacionalidade *</span><input name="nacionalidade" required /></label>
+          <label class="field"><span>Número de Passaporte *</span><input name="passaporte" required /></label>
+          <label class="field"><span>Telefone *</span><input name="telefone" placeholder="+258 ..." required /></label>
+          <label class="field"><span>Email *</span><input type="email" name="email" required /></label>
+        </div>
+
+        <label class="field"><span>Endereço *</span><input name="endereco" required /></label>
+
+        <div class="grid-2">
+          <label class="field"><span>Nome completo do Pai *</span><input name="nomePai" required /></label>
+          <label class="field"><span>Nome completo da Mãe *</span><input name="nomeMae" required /></label>
+        </div>
+
+        <div class="field">
+          <span>Possui familiares em Portugal? *</span>
+          <div class="pills" data-pills="familiaresPT">
+            <button type="button" class="pill" data-value="Sim">Sim</button>
+            <button type="button" class="pill" data-value="Não">Não</button>
+          </div>
+          <input type="hidden" name="familiaresPT" required />
+        </div>
+        <label class="field hidden" id="familiaresQuemWrap"><span>Se sim, indique quem</span><input name="familiaresQuem" /></label>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step hidden" data-step="2">
+        <h2 class="section-title">2. Informações Académicas</h2>
+        <div class="grid-2">
+          <label class="field"><span>Última classe concluída *</span><input name="ultimaClasse" required /></label>
+          <label class="field"><span>Ano de conclusão *</span><input name="anoConclusao" required /></label>
+        </div>
+        <label class="field"><span>Escola *</span><input name="escola" required /></label>
+
+        <p class="hint">Notas médias por disciplina (Ex.: Pt (18), Ma (19) ...)</p>
+        <div class="grid-2">
+          <label class="field"><span>7ª Classe</span><input name="notas7" /></label>
+          <label class="field"><span>9ª Classe</span><input name="notas9" /></label>
+          <label class="field"><span>10ª Classe</span><input name="notas10" /></label>
+          <label class="field"><span>11ª Classe</span><input name="notas11" /></label>
+          <label class="field"><span>12ª Classe</span><input name="notas12" /></label>
+        </div>
+
+        <div class="field">
+          <span>Conhecimento de Inglês *</span>
+          <div class="pills" data-pills="ingles">
+            <button type="button" class="pill" data-value="Básico">Básico</button>
+            <button type="button" class="pill" data-value="Intermédio">Intermédio</button>
+            <button type="button" class="pill" data-value="Avançado">Avançado</button>
+          </div>
+          <input type="hidden" name="ingles" required />
+        </div>
+
+        <div class="field">
+          <span>Conhecimento de Informática *</span>
+          <div class="pills" data-pills="informatica">
+            <button type="button" class="pill" data-value="Sim">Sim</button>
+            <button type="button" class="pill" data-value="Não">Não</button>
+          </div>
+          <input type="hidden" name="informatica" required />
+        </div>
+        <label class="field hidden" id="informaticaDescWrap"><span>Descreva (programas, ferramentas...)</span><input name="informaticaDesc" /></label>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step hidden" data-step="3">
+        <h2 class="section-title">3. Situação Económica</h2>
+        <div class="field">
+          <span>Rendimento mensal *</span>
+          <div class="pills" data-pills="rendimento">
+            <button type="button" class="pill" data-value="Baixo">Baixo</button>
+            <button type="button" class="pill" data-value="Médio">Médio</button>
+            <button type="button" class="pill" data-value="Alto">Alto</button>
+          </div>
+          <input type="hidden" name="rendimento" required />
+        </div>
+        <label class="field"><span>Descrição da situação económica</span>
+          <textarea name="descricaoEconomica" rows="4" maxlength="1000"></textarea>
+        </label>
+
+        <h2 class="section-title">4. Condições Financeiras</h2>
+        <p class="hint">O candidato pode custear:</p>
+        <div class="checks" id="custearList"></div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step hidden" data-step="4">
+        <h2 class="section-title">5. Escolha de Cursos</h2>
+        <p class="hint">Seleciona um ou mais cursos pretendidos.</p>
+        <div class="checks" id="cursosList"></div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="step hidden" data-step="5">
+        <h2 class="section-title">6. Motivação</h2>
+        <label class="field"><span>Por que deseja estudar em Portugal? *</span>
+          <textarea name="motivacao" rows="5" maxlength="1500" required></textarea>
+        </label>
+        <label class="field"><span>Por onde teve conhecimento sobre a associação?</span>
+          <input name="conhecimentoAssoc" />
+        </label>
+      </section>
+
+      <!-- STEP 6 -->
+      <section class="step hidden" data-step="6">
+        <h2 class="section-title">8. Declaração</h2>
+        <label class="declaration">
+          <input type="checkbox" name="declaracao" required />
+          <span>Declaro que as informações fornecidas são verdadeiras.</span>
+        </label>
+        <label class="field"><span>Assinatura (nome) *</span>
+          <input name="assinatura" placeholder="Escreve o teu nome completo" required />
+        </label>
+        <label class="field"><span>Data *</span>
+          <div class="row">
+            <input name="dataDia" placeholder="DD" maxlength="2" required />
+            <input name="dataMes" placeholder="MM" maxlength="2" required />
+            <input name="dataAno" placeholder="AAAA" maxlength="4" required />
+          </div>
+        </label>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="prevBtn" class="btn btn-ghost">← Voltar</button>
+        <span class="step-indicator" id="stepIndicator">Passo 1 de 6</span>
+        <button type="button" id="nextBtn" class="btn btn-gold">Continuar →</button>
+        <button type="submit" id="submitBtn" class="btn btn-gold hidden">Enviar candidatura ✓</button>
+      </div>
+    </form>
+
+    <div id="success" class="card success hidden">
+      <div class="check-circle">✓</div>
+      <h2>Candidatura recebida</h2>
+      <p>Obrigado! A AUCP entrará em contacto através do email indicado.</p>
+      <button type="button" class="btn btn-ghost" id="resetBtn">Nova candidatura</button>
+    </div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <footer class="footer">
+    © <span id="year"></span> AUCP — Associação Universal Conexão Profunda
+  </footer>
+
+  <script src="inscricao.js"></script>
+</body>
+</html>
